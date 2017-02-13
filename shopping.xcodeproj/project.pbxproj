@@ -17,6 +17,7 @@
 		FAA604FF1E515B43009807AF /* ContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA604FE1E515B43009807AF /* ContactViewController.m */; };
 		FAA605021E515B60009807AF /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA605011E515B60009807AF /* ProfileViewController.m */; };
 		FAA605051E515D9D009807AF /* MainNav.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA605041E515D9D009807AF /* MainNav.m */; };
+		FAA6050D1E51624D009807AF /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA6050C1E51624D009807AF /* TabBarViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,12 @@
 		FAA605011E515B60009807AF /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		FAA605031E515D9D009807AF /* MainNav.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainNav.h; sourceTree = "<group>"; };
 		FAA605041E515D9D009807AF /* MainNav.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainNav.m; sourceTree = "<group>"; };
+		FAA605071E515F9F009807AF /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
+		FAA605081E515F9F009807AF /* Defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Defines.h; sourceTree = "<group>"; };
+		FAA605091E515F9F009807AF /* Protocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Protocols.h; sourceTree = "<group>"; };
+		FAA6050A1E51605A009807AF /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		FAA6050B1E51624D009807AF /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
+		FAA6050C1E51624D009807AF /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +77,7 @@
 		FA7E36161E4C5584005AED59 /* shopping */ = {
 			isa = PBXGroup;
 			children = (
+				FAA605061E515F9F009807AF /* Config */,
 				FAA604F61E515AE0009807AF /* TabBarControllers */,
 				FA7E361A1E4C5584005AED59 /* AppDelegate.h */,
 				FA7E361B1E4C5584005AED59 /* AppDelegate.m */,
@@ -87,6 +95,7 @@
 		FA7E36171E4C5584005AED59 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FAA6050A1E51605A009807AF /* PrefixHeader.pch */,
 				FA7E36181E4C5584005AED59 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -95,6 +104,8 @@
 		FAA604F61E515AE0009807AF /* TabBarControllers */ = {
 			isa = PBXGroup;
 			children = (
+				FAA6050B1E51624D009807AF /* TabBarViewController.h */,
+				FAA6050C1E51624D009807AF /* TabBarViewController.m */,
 				FAA604F71E515B1D009807AF /* HomeViewController.h */,
 				FAA604F81E515B1D009807AF /* HomeViewController.m */,
 				FAA604FA1E515B32009807AF /* RecommendViewController.h */,
@@ -105,6 +116,16 @@
 				FAA605011E515B60009807AF /* ProfileViewController.m */,
 			);
 			path = TabBarControllers;
+			sourceTree = "<group>";
+		};
+		FAA605061E515F9F009807AF /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				FAA605071E515F9F009807AF /* Config.h */,
+				FAA605081E515F9F009807AF /* Defines.h */,
+				FAA605091E515F9F009807AF /* Protocols.h */,
+			);
+			path = Config;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,6 +203,7 @@
 				FAA605021E515B60009807AF /* ProfileViewController.m in Sources */,
 				FA7E361C1E4C5584005AED59 /* AppDelegate.m in Sources */,
 				FAA604F91E515B1D009807AF /* HomeViewController.m in Sources */,
+				FAA6050D1E51624D009807AF /* TabBarViewController.m in Sources */,
 				FAA605051E515D9D009807AF /* MainNav.m in Sources */,
 				FA7E36191E4C5584005AED59 /* main.m in Sources */,
 				FAA604FC1E515B32009807AF /* RecommendViewController.m in Sources */,
@@ -304,6 +326,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/shopping/PrefixHeader.pch";
 				INFOPLIST_FILE = shopping/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ecxspho.shopping;
@@ -315,6 +338,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/shopping/PrefixHeader.pch";
 				INFOPLIST_FILE = shopping/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ecxspho.shopping;

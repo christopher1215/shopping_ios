@@ -1,0 +1,21 @@
+//
+//  PrefixHeader.pch
+//  psychology
+//
+//  Created by 123 on 8/2/16.
+//  Copyright © 2016 damytech. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import "Config.h"
+#import "Defines.h"
+#import "Protocols.h"
+
+//#import "Common.h"
+//#import "AFNetworking.h"
+//
+//#import "UserInfoKit.h"
+
+#endif /* PrefixHeader_pch */
