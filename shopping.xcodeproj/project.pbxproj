@@ -9,11 +9,14 @@
 /* Begin PBXBuildFile section */
 		FA7E36191E4C5584005AED59 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7E36181E4C5584005AED59 /* main.m */; };
 		FA7E361C1E4C5584005AED59 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7E361B1E4C5584005AED59 /* AppDelegate.m */; };
-		FA7E361F1E4C5584005AED59 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7E361E1E4C5584005AED59 /* FirstViewController.m */; };
-		FA7E36221E4C5584005AED59 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7E36211E4C5584005AED59 /* SecondViewController.m */; };
 		FA7E36251E4C5584005AED59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA7E36231E4C5584005AED59 /* Main.storyboard */; };
 		FA7E36271E4C5584005AED59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA7E36261E4C5584005AED59 /* Assets.xcassets */; };
 		FA7E362A1E4C5584005AED59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA7E36281E4C5584005AED59 /* LaunchScreen.storyboard */; };
+		FAA604F91E515B1D009807AF /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA604F81E515B1D009807AF /* HomeViewController.m */; };
+		FAA604FC1E515B32009807AF /* RecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA604FB1E515B32009807AF /* RecommendViewController.m */; };
+		FAA604FF1E515B43009807AF /* ContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA604FE1E515B43009807AF /* ContactViewController.m */; };
+		FAA605021E515B60009807AF /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA605011E515B60009807AF /* ProfileViewController.m */; };
+		FAA605051E515D9D009807AF /* MainNav.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA605041E515D9D009807AF /* MainNav.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,14 +24,20 @@
 		FA7E36181E4C5584005AED59 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FA7E361A1E4C5584005AED59 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FA7E361B1E4C5584005AED59 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		FA7E361D1E4C5584005AED59 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		FA7E361E1E4C5584005AED59 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		FA7E36201E4C5584005AED59 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		FA7E36211E4C5584005AED59 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		FA7E36241E4C5584005AED59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FA7E36261E4C5584005AED59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA7E36291E4C5584005AED59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA7E362B1E4C5584005AED59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAA604F71E515B1D009807AF /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		FAA604F81E515B1D009807AF /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		FAA604FA1E515B32009807AF /* RecommendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendViewController.h; sourceTree = "<group>"; };
+		FAA604FB1E515B32009807AF /* RecommendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendViewController.m; sourceTree = "<group>"; };
+		FAA604FD1E515B43009807AF /* ContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactViewController.h; sourceTree = "<group>"; };
+		FAA604FE1E515B43009807AF /* ContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactViewController.m; sourceTree = "<group>"; };
+		FAA605001E515B60009807AF /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		FAA605011E515B60009807AF /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		FAA605031E515D9D009807AF /* MainNav.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainNav.h; sourceTree = "<group>"; };
+		FAA605041E515D9D009807AF /* MainNav.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainNav.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,13 +70,12 @@
 		FA7E36161E4C5584005AED59 /* shopping */ = {
 			isa = PBXGroup;
 			children = (
+				FAA604F61E515AE0009807AF /* TabBarControllers */,
 				FA7E361A1E4C5584005AED59 /* AppDelegate.h */,
 				FA7E361B1E4C5584005AED59 /* AppDelegate.m */,
-				FA7E361D1E4C5584005AED59 /* FirstViewController.h */,
-				FA7E361E1E4C5584005AED59 /* FirstViewController.m */,
-				FA7E36201E4C5584005AED59 /* SecondViewController.h */,
-				FA7E36211E4C5584005AED59 /* SecondViewController.m */,
 				FA7E36231E4C5584005AED59 /* Main.storyboard */,
+				FAA605031E515D9D009807AF /* MainNav.h */,
+				FAA605041E515D9D009807AF /* MainNav.m */,
 				FA7E36261E4C5584005AED59 /* Assets.xcassets */,
 				FA7E36281E4C5584005AED59 /* LaunchScreen.storyboard */,
 				FA7E362B1E4C5584005AED59 /* Info.plist */,
@@ -82,6 +90,21 @@
 				FA7E36181E4C5584005AED59 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FAA604F61E515AE0009807AF /* TabBarControllers */ = {
+			isa = PBXGroup;
+			children = (
+				FAA604F71E515B1D009807AF /* HomeViewController.h */,
+				FAA604F81E515B1D009807AF /* HomeViewController.m */,
+				FAA604FA1E515B32009807AF /* RecommendViewController.h */,
+				FAA604FB1E515B32009807AF /* RecommendViewController.m */,
+				FAA604FD1E515B43009807AF /* ContactViewController.h */,
+				FAA604FE1E515B43009807AF /* ContactViewController.m */,
+				FAA605001E515B60009807AF /* ProfileViewController.h */,
+				FAA605011E515B60009807AF /* ProfileViewController.m */,
+			);
+			path = TabBarControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,10 +178,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA7E36221E4C5584005AED59 /* SecondViewController.m in Sources */,
+				FAA604FF1E515B43009807AF /* ContactViewController.m in Sources */,
+				FAA605021E515B60009807AF /* ProfileViewController.m in Sources */,
 				FA7E361C1E4C5584005AED59 /* AppDelegate.m in Sources */,
-				FA7E361F1E4C5584005AED59 /* FirstViewController.m in Sources */,
+				FAA604F91E515B1D009807AF /* HomeViewController.m in Sources */,
+				FAA605051E515D9D009807AF /* MainNav.m in Sources */,
 				FA7E36191E4C5584005AED59 /* main.m in Sources */,
+				FAA604FC1E515B32009807AF /* RecommendViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,6 +341,7 @@
 				FA7E36301E4C5584005AED59 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
