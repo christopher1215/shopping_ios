@@ -9,13 +9,12 @@
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
 
-#import "Config.h"
+#import "Constant.h"
 #import "Defines.h"
 #import "Protocols.h"
 
-//#import "Common.h"
-//#import "AFNetworking.h"
-//
-//#import "UserInfoKit.h"
+#import "Common_Header.h"
+
+#import "UserInfoKit.h"
 
 #endif /* PrefixHeader_pch */

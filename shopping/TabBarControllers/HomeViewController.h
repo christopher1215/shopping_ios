@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface HomeViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIView *SlideView;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end

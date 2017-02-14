@@ -19,7 +19,14 @@
     [self setDelegate:self];
     self.title=STR_HOME;
     [[UITabBar appearance] setTintColor:RGB(238, 80, 60)];
+    [[UITabBar appearance] setBackgroundImage:[UIImage imageNamed:@"tabbar_bg.png"]];
     
+    self.tabBar.layer.shadowRadius  = 2.5f;
+    self.tabBar.layer.shadowColor   = RGBA(0, 0, 0, 0.3).CGColor;
+    self.tabBar.layer.shadowOffset  = CGSizeMake(0.0f, 0.0f);
+    self.tabBar.layer.shadowOpacity = 0.7f;
+    self.tabBar.layer.masksToBounds = NO;
+
 }
 -(void) tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
 {

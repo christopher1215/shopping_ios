@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,13 +21,37 @@
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T4o-XG-L4N">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="225"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xBz-tg-Efa">
+                                <rect key="frame" x="0.0" y="225" width="375" height="321"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="xBz-tg-Efa" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="B9r-9f-hnl"/>
+                            <constraint firstItem="T4o-XG-L4N" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="Kpe-V5-IDR"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="xBz-tg-Efa" secondAttribute="bottom" constant="8" id="Psv-qN-eE9"/>
+                            <constraint firstItem="T4o-XG-L4N" firstAttribute="width" secondItem="T4o-XG-L4N" secondAttribute="height" multiplier="5:3" id="hOv-xS-a5k"/>
+                            <constraint firstAttribute="trailing" secondItem="xBz-tg-Efa" secondAttribute="trailing" id="kDg-Gy-Yvo"/>
+                            <constraint firstItem="xBz-tg-Efa" firstAttribute="top" secondItem="T4o-XG-L4N" secondAttribute="bottom" id="rXP-UB-2TC"/>
+                            <constraint firstItem="T4o-XG-L4N" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" id="sSt-aX-4CT"/>
+                            <constraint firstAttribute="trailing" secondItem="T4o-XG-L4N" secondAttribute="trailing" id="w67-Mn-tP7"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="首  页" image="tab_btn_home" id="acW-dT-cKf"/>
+                    <connections>
+                        <outlet property="SlideView" destination="T4o-XG-L4N" id="T3l-HX-n2k"/>
+                        <outlet property="tableView" destination="xBz-tg-Efa" id="8xF-3X-pRu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="-1115"/>
+            <point key="canvasLocation" x="749.60000000000002" y="-1115.8920539730136"/>
         </scene>
         <!--邀请好友-->
         <scene sceneID="wg7-f3-ORb">

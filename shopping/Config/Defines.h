@@ -11,4 +11,5 @@
 
 #define     STR_HOME                @"辽宁问鼎文化艺术品商城"
 
+#define     STR_PACEHOLDER          @""
 #endif /* Define_h */
