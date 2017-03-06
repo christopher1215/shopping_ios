@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[InfoViewController viewDidLoad]:InfoViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[UserInfoKit sharedKit]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[RecoverPwdViewController keyboardWasShown:]:RecoverPwdViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[[UIScreen mainScreen] bounds].size.height">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[ProfileViewController viewWillAppear:]:ProfileViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[UserInfoKit sharedKit].userID">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
