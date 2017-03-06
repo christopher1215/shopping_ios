@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="NewsTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="news_mark.png" translatesAutoresizingMaskIntoConstraints="NO" id="85f-mK-P6P">
+                        <rect key="frame" x="16" y="16" width="27" height="13"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="13" id="foS-jh-fmJ"/>
+                            <constraint firstAttribute="width" constant="27" id="o7O-uN-nv9"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KeX-e5-THc">
+                        <rect key="frame" x="43" y="5" width="269" height="34"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstItem="KeX-e5-THc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="Nf4-wJ-e5d"/>
+                    <constraint firstAttribute="trailing" secondItem="KeX-e5-THc" secondAttribute="trailing" constant="8" id="gnY-YM-riQ"/>
+                    <constraint firstItem="KeX-e5-THc" firstAttribute="leading" secondItem="85f-mK-P6P" secondAttribute="trailing" id="nKe-p8-Zth"/>
+                    <constraint firstItem="85f-mK-P6P" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="pXm-Qf-OOH"/>
+                    <constraint firstAttribute="bottom" secondItem="KeX-e5-THc" secondAttribute="bottom" constant="5" id="rEd-1P-qUZ"/>
+                    <constraint firstItem="85f-mK-P6P" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15.5" id="xjE-cN-FOM"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="lblContent" destination="KeX-e5-THc" id="CVQ-Od-Kti"/>
+            </connections>
+            <point key="canvasLocation" x="-15920" y="45"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="news_mark.png" width="43" height="21"/>
+    </resources>
+</document>

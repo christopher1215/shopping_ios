@@ -134,7 +134,7 @@ typedef NS_ENUM(NSInteger, DEVICE_KIND) {
 + (void)registerNotifications :(UIViewController*)vc;
 + (void)animateControl:(UIView*)target endRect:(CGRect)endRect;
 + (void)animateConstant:(NSLayoutConstraint*)target endConstant:(CGFloat)endConstant;
-+ (void) uploadImages:(UIImage *)img protocolName:(NSString *)protocol viewController:(UIViewController*)vc;
++ (void) uploadImages:(UIImage *)img protocolName:(NSString *)protocol viewController:(UIViewController*)vc name:(NSString *)name ind:(NSString *)ind;
 + (void)setStatusBarBackgroundColor:(UIColor *)color;
 
 + (NSDictionary *)fetchData:(NSDictionary *)response;

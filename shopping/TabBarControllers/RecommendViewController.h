@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface RecommendViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIImageView *imgQr;
 
 @end

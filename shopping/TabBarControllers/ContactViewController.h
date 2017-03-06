@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface ContactViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (assign, nonatomic) long user_id;
+@property (assign, nonatomic) short detailFlag;
 
 @end

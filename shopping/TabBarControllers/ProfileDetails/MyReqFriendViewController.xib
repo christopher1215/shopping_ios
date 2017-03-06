@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyReqFriendViewController">
+            <connections>
+                <outlet property="btnOk" destination="K8f-Gi-wy7" id="Lzv-kG-nfv"/>
+                <outlet property="codeView" destination="fpt-Et-pTI" id="oJC-dB-FqZ"/>
+                <outlet property="lblCode" destination="6gj-AZ-ZVf" id="k5l-m0-aW4"/>
+                <outlet property="lblCondition" destination="rrW-Xb-4dh" id="uIP-BU-omV"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iPF-vG-pkf">
+                    <rect key="frame" x="55" y="70" width="265.5" height="38.5"/>
+                    <string key="text">分享好友，您可获得多购买一次机会
+还有可享受邀请提成和可晋升为经理</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fpt-Et-pTI">
+                    <rect key="frame" x="60" y="158.5" width="255" height="57"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的专属邀请码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GuR-2j-9x6">
+                            <rect key="frame" x="77.5" y="8" width="100" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6gj-AZ-ZVf">
+                            <rect key="frame" x="128" y="41" width="0.0" height="0.0"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <color key="textColor" red="0.93333333330000001" green="0.31372549020000001" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="6gj-AZ-ZVf" secondAttribute="bottom" constant="16" id="0ge-iC-zfP"/>
+                        <constraint firstItem="GuR-2j-9x6" firstAttribute="top" secondItem="fpt-Et-pTI" secondAttribute="top" constant="8" id="4nC-aJ-jKA"/>
+                        <constraint firstItem="GuR-2j-9x6" firstAttribute="centerX" secondItem="fpt-Et-pTI" secondAttribute="centerX" id="7Pi-7i-r5D"/>
+                        <constraint firstItem="6gj-AZ-ZVf" firstAttribute="top" secondItem="GuR-2j-9x6" secondAttribute="bottom" constant="16" id="KtT-Ex-lZ2"/>
+                        <constraint firstItem="6gj-AZ-ZVf" firstAttribute="centerX" secondItem="fpt-Et-pTI" secondAttribute="centerX" id="bid-0j-thG"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="客户自动升级标准：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7SY-Ik-ehE">
+                    <rect key="frame" x="55" y="255.5" width="138" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="直接推广10人升级为部门经理， 直接推广50人并且这50人中有10个 升级成为部门经理了，部门经理可自动升级为高级经理" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rrW-Xb-4dh">
+                    <rect key="frame" x="55" y="287.5" width="265" height="47"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K8f-Gi-wy7">
+                    <rect key="frame" x="20" y="607" width="335" height="40"/>
+                    <color key="backgroundColor" red="0.93333333330000001" green="0.31372549020000001" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="fkz-Pt-h6C"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" title="分享">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onShare:" destination="-1" eventType="touchUpInside" id="13F-Oe-0bI"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fpt-Et-pTI" firstAttribute="top" secondItem="iPF-vG-pkf" secondAttribute="bottom" constant="50" id="71S-hI-aZe"/>
+                <constraint firstItem="iPF-vG-pkf" firstAttribute="trailing" secondItem="rrW-Xb-4dh" secondAttribute="trailing" id="89X-ZG-30O"/>
+                <constraint firstItem="rrW-Xb-4dh" firstAttribute="top" secondItem="7SY-Ik-ehE" secondAttribute="bottom" constant="14" id="9qn-H4-AE1"/>
+                <constraint firstAttribute="bottom" secondItem="K8f-Gi-wy7" secondAttribute="bottom" constant="20" id="ATA-RN-39n"/>
+                <constraint firstAttribute="trailing" secondItem="K8f-Gi-wy7" secondAttribute="trailing" constant="20" id="GlG-XZ-9g7"/>
+                <constraint firstAttribute="trailing" secondItem="rrW-Xb-4dh" secondAttribute="trailing" constant="55" id="Hxc-Ue-eM6"/>
+                <constraint firstAttribute="trailing" secondItem="fpt-Et-pTI" secondAttribute="trailing" constant="60" id="LwF-v8-bTG"/>
+                <constraint firstItem="iPF-vG-pkf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="70" id="MBS-LX-1eA"/>
+                <constraint firstItem="7SY-Ik-ehE" firstAttribute="leading" secondItem="iPF-vG-pkf" secondAttribute="leading" id="Yqr-Ep-LaZ"/>
+                <constraint firstItem="rrW-Xb-4dh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="55" id="fCe-Bj-u5C"/>
+                <constraint firstItem="K8f-Gi-wy7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="nCR-Xi-L5z"/>
+                <constraint firstItem="7SY-Ik-ehE" firstAttribute="top" secondItem="fpt-Et-pTI" secondAttribute="bottom" constant="40" id="rvj-RS-xYI"/>
+                <constraint firstItem="fpt-Et-pTI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="60" id="sn4-pt-TcF"/>
+                <constraint firstItem="rrW-Xb-4dh" firstAttribute="leading" secondItem="7SY-Ik-ehE" secondAttribute="leading" id="tVV-Bj-AGn"/>
+            </constraints>
+            <point key="canvasLocation" x="47.5" y="59.5"/>
+        </view>
+    </objects>
+</document>

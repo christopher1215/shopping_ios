@@ -872,24 +872,27 @@ NSString *  _deviceToken = @"";
     [UIView commitAnimations];
 }
 
-+ (void) uploadImages:(UIImage *)uploadImg protocolName:(NSString *)protocol viewController:(UIViewController*)vc{
++ (void) uploadImages:(UIImage *)uploadImg protocolName:(NSString *)protocol viewController:(UIViewController*)vc name:(NSString *)name ind:(NSString *)ind{
     [self showProgress:vc.view];
     UIImage * img = [self resizeImageByCondForUpload:uploadImg];
 	AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:SERVER_UPLOAD_URL]];
     NSData *imageData = UIImageJPEGRepresentation(img, 0.6);// UIImagePNGRepresentation(img);
-	NSString *strFileName = [NSString stringWithFormat:@"%@.png", [UserInfoKit sharedKit].phone];
-	NSDictionary *parameters = @{@"phone": [UserInfoKit sharedKit].phone, @"password" : [UserInfoKit sharedKit].password};
-	manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
-//    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+	NSString *strFileName = [NSString stringWithFormat:@"%@.jpg", [UserInfoKit sharedKit].phone];
+	NSDictionary *parameters = @{
+                                 @"user_id": [NSString stringWithFormat:@"%ld",[UserInfoKit sharedKit].userID],
+                                 @"id" : ind
+                                 };
+//	manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
 	AFHTTPRequestOperation *op = [manager POST:protocol parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
 		//do not put image inside parameters dictionary as I did, but append it!
-		[formData appendPartWithFileData:imageData name:@"uploadhead" fileName:strFileName mimeType:@"image/png"];
+		[formData appendPartWithFileData:imageData name:name fileName:strFileName mimeType:@"image/jpeg"];
 	} success:^(AFHTTPRequestOperation *operation, id responseObject) {
 		NSLog(@"Success: %@ ***** %@", operation.responseString, responseObject);
-		//NSDictionary *rcvData = [Common fetchData:responseObject];
+		NSDictionary *rcvData = [Common fetchData:responseObject];
         [self hideProgress];	//Hiding the progress message
 		if ([[responseObject objectForKey:@"errCode"] intValue] == 0) {		//success to get datas
-			[vc performSelector:@selector(postImgData:image:) withObject:strFileName withObject:img];
+			[vc performSelector:@selector(postImgData:image:) withObject:[rcvData objectForKey:@"img_url"] withObject:img];
         } else {
             [self showMessage:[responseObject objectForKey:@"errMsg"]];
         }

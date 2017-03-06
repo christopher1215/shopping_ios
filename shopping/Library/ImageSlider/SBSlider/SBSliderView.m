@@ -80,7 +80,7 @@
         frameRect.origin.x = (frameRect.size.width * mainCount);
         imageV.frame = frameRect;
         imageV.contentMode = UIViewContentModeScaleAspectFill;
-        imageV.image = [UIImage imageNamed:@"noImage.png"];
+        imageV.image = [UIImage imageNamed:@"noImage.jpg"];
         [_sliderMainScroller addSubview:imageV];
         imageV.clipsToBounds = YES;
         imageV.userInteractionEnabled = YES;

@@ -1,13 +1,26 @@
-#define     SERVER_URL                      @"http://218.60.131.41:10323/PsyService.svc/"
+#define     SERVER_URL                      @"http://httpslnwd.com/appApi/"
 
-#define     IMAGE_URL_COMMODITY				@"http://218.60.131.41:10322/"
+#define     SERVER_UPLOAD_URL               @"http://httpslnwd.com/appApi/"
+#define 	SVC_UP_CHARACTER_IMG			@"save_idcard_img"
 
-
-#define     SERVER_UPLOAD_URL               @"http://218.60.131.41:10323/"
-#define 	SVC_UP_CHARACTER_IMG			@"Image.ashx"
-
-#define 	SVC_LOGIN						@"UserLogin"
-
-
-
-
+#define     SVC_AD_IMG                      @"ad_img"
+#define 	SVC_GOODS_MORE					@"goods_more"
+#define 	SVC_LOGIN						@"user_login"
+#define 	SVC_AGENT_LOGIN					@"agent_login"
+#define     SVC_SIGN_UP                     @"register"
+#define     SVC_GET_SMS                     @"send_sms"
+#define     SVC_GET_SMS2                    @"send_sms_2"
+#define     SVC_RESET_PASSWORD              @"forgetpw"
+#define     SVC_INVITE_FRIENDS              @"invite_friends"
+#define     SVC_RELATIONSHIP                @"relationship"
+#define     SVC_SAVEBANKINFO                @"save_bankinfo"
+#define     SVC_GETBANKINFO                 @"getbankinfo"
+#define     SVC_CHANGEPW                    @"changepw"
+#define     SVC_REQUEST_MONEY               @"request_money"
+#define     SVC_GET_MESSAGE_LIST            @"get_message_list"
+#define     SVC_GET_INVITE_CODE             @"get_invite_code"
+#define     SVC_GET_AGENT_COMMISSION        @"get_agent_commission"
+#define     SVC_GET_WALLET_INFO             @"get_wallet_info"
+#define     SVC_GET_BUY_LIST                @"get_buy_list"
+#define     SVC_GET_ORDERNUM                @"get_ordernum"
+#define     SVC_PRE_WEIXIN_PAY              @"pre_weixin_pay"

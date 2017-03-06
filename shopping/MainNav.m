@@ -7,14 +7,14 @@
 //
 
 #import "MainNav.h"
-//#import "NewsViewController.h"
+#import "MyNewsViewController.h"
 
 @implementation MainNav
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotoSystemMsgPage:) name:@"gotoSystemMsgPage" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotoSystemMsgPage:) name:@"gotoSystemMsgPage" object:nil];
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle
@@ -27,8 +27,8 @@
 
 //    [[UINavigationBar appearance] setBarTintColor:RGB(238, 80, 60)];
 //    [[UINavigationBar appearance] setTranslucent:NO];
-//    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
-//    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
 
     [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
     
@@ -39,10 +39,10 @@
 }
 
 
-//-(void)gotoSystemMsgPage:(NSNotification *)noti
-//{
-//    NewsViewController *vc = [[NewsViewController alloc] initWithNibName:@"NewsViewController" bundle:nil];
-//    [self pushViewController:vc animated:YES];
-//}
+-(void)gotoSystemMsgPage:(NSNotification *)noti
+{
+    MyNewsViewController *vc = [[MyNewsViewController alloc] initWithNibName:@"MyNewsViewController" bundle:nil];
+    [self pushViewController:vc animated:YES];
+}
 
 @end
