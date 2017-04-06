@@ -17,6 +17,9 @@
 #import "Commodity.h"
 
 #import "OrderViewController.h"
+#import "JPUSHService.h"
+#import "LogInViewController.h"
+
 
 @interface HomeViewController ()<SBSliderDelegate,UITableViewDataSource,UITableViewDelegate>
 {
@@ -48,7 +51,98 @@
     [self addFooter];
     [self addRefreshKit];
     firstFlag = true;
+    if ([UserInfoKit sharedKit].userID > 0) {
+        [self loginAction];
+    }
+}
+- (void)loginAction
+{
+    NSString * urlStr = [SERVER_URL stringByAppendingString: SVC_LOGIN];
+    NSDictionary *data = @ {@"phone" : [NSString stringWithFormat:@"%@", [UserInfoKit sharedKit].phone],
+        @"password" : [NSString stringWithFormat:@"%@", [UserInfoKit sharedKit].password]
+    };
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [Common showProgress:self.view];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    [manager POST:urlStr parameters:data
+          success:^(AFHTTPRequestOperation *operation, id responseObject){
+              NSDictionary *latestLoans = [Common fetchData:responseObject];
+              if (latestLoans) {
+                  
+                      [UserInfoKit sharedKit].userID = [[latestLoans objectForKey:@"user_id"] intValue];
+                  
+                      [UserInfoKit sharedKit].name = [latestLoans objectForKey:@"name"];
+                      [UserInfoKit sharedKit].level = [[latestLoans objectForKey:@"level"] shortValue];
+                      [UserInfoKit sharedKit].parent_name = [latestLoans objectForKey:@"parent_name"];
+                      [UserInfoKit sharedKit].remain_buy_num = [[latestLoans objectForKey:@"remain_buy_num"] intValue];
+                      [UserInfoKit sharedKit].dividend_num = [[latestLoans objectForKey:@"dividend_num"] intValue];
+                      [UserInfoKit sharedKit].buy_num = [[latestLoans objectForKey:@"buy_num"] intValue];
+                      [UserInfoKit sharedKit].level_str = [latestLoans objectForKey:@"level_str"];
+                      [UserInfoKit sharedKit].current_money = [[latestLoans objectForKey:@"current_money"] floatValue];
+                      [UserInfoKit sharedKit].buy_money = [[latestLoans objectForKey:@"buy_money"] floatValue];
+                      [UserInfoKit sharedKit].invite_money = [[latestLoans objectForKey:@"invite_money"] floatValue];
+                      [UserInfoKit sharedKit].total_commision = [[latestLoans objectForKey:@"total_commision"] floatValue];
+                      
+                      [UserInfoKit sharedKit].bank_account = [latestLoans objectForKey:@"bank_account"];
+                      [UserInfoKit sharedKit].bank_cardid = [latestLoans objectForKey:@"bank_cardid"];
+                      [UserInfoKit sharedKit].bank_name = [latestLoans objectForKey:@"bank_name"];
+                      [UserInfoKit sharedKit].commission_percent = [[latestLoans objectForKey:@"commission_percent"] floatValue];
+                      [UserInfoKit sharedKit].contact_phone = [latestLoans objectForKey:@"contact_phone"];
+                      [UserInfoKit sharedKit].dividend_money = [[latestLoans objectForKey:@"dividend_money"] floatValue];
+                      [UserInfoKit sharedKit].idcard_back_img = [latestLoans objectForKey:@"idcard_back_img"];
+                      [UserInfoKit sharedKit].idcard_front_img = [latestLoans objectForKey:@"idcard_front_img"];
+                      [UserInfoKit sharedKit].idcard_num = [latestLoans objectForKey:@"idcard_num"];
+                      [UserInfoKit sharedKit].invite_code = [latestLoans objectForKey:@"invite_code"];
+                      [UserInfoKit sharedKit].invite_num = [[latestLoans objectForKey:@"invite_num"] floatValue];
+                      [UserInfoKit sharedKit].invite_qr_url = [latestLoans objectForKey:@"invite_qr_url"];
+                      [UserInfoKit sharedKit].invite_users = [[latestLoans objectForKey:@"invite_users"] intValue];
+                      [UserInfoKit sharedKit].jpush_alias_code = [latestLoans objectForKey:@"jpush_alias_code"];
+                      [UserInfoKit sharedKit].mgr_id = [[latestLoans objectForKey:@"mgr_id"] intValue];
+                      [UserInfoKit sharedKit].month_commission_percent = [[latestLoans objectForKey:@"month_commission_percent"] floatValue];
+                      [UserInfoKit sharedKit].parent1_id = [[latestLoans objectForKey:@"parent1_id"] intValue];
+                      [UserInfoKit sharedKit].parent2_id = [[latestLoans objectForKey:@"parent2_id"] intValue];
+                      [UserInfoKit sharedKit].rating_commission_money = [[latestLoans objectForKey:@"rating_commission_money"] floatValue];
+                      [UserInfoKit sharedKit].rating_commission_num = [[latestLoans objectForKey:@"rating_commission_num"] floatValue];
+                      [UserInfoKit sharedKit].recommender_flag = [[latestLoans objectForKey:@"recommender_flag"] shortValue];
+                      [UserInfoKit sharedKit].recomment_userid = [[latestLoans objectForKey:@"recomment_userid"] intValue];
+                      [UserInfoKit sharedKit].reg_date = [latestLoans objectForKey:@"reg_date"];
+                      [UserInfoKit sharedKit].withdraw_agent_money = [[latestLoans objectForKey:@"withdraw_agent_money"] floatValue];
+                      [UserInfoKit sharedKit].withdraw_agent_num = [[latestLoans objectForKey:@"withdraw_agent_num"] intValue];
+                      [UserInfoKit sharedKit].withdraw_money = [[latestLoans objectForKey:@"withdraw_money"] floatValue];
+                      [UserInfoKit sharedKit].withdraw_num = [[latestLoans objectForKey:@"withdraw_num"] intValue];
+                      [UserInfoKit sharedKit].contact_qq = [latestLoans objectForKey:@"contact_qq"];
+                      
+                      [JPUSHService setAlias:[UserInfoKit sharedKit].jpush_alias_code callbackSelector:nil
+                                      object:self];
+              } else {
+                  [UserInfoKit sharedKit].userID = UNLOGIN_FLAG;
+                  [UserInfoKit sharedKit].userID = 0;
+                  [UserInfoKit sharedKit].name = @"";
+                  [UserInfoKit sharedKit].phone = @"";
+                  [UserInfoKit sharedKit].password = @"";
+                  [UserInfoKit sharedKit].parent_name = @"";
+                  [UserInfoKit sharedKit].current_money = 0;
+                  [UserInfoKit sharedKit].buy_num = 0;
+                  [UserInfoKit sharedKit].dividend_num = 0;
+                  [UserInfoKit sharedKit].level_str = @"";
+                  [UserInfoKit sharedKit].idcard_back_img = @"";
+                  [UserInfoKit sharedKit].idcard_back_img = @"";
+                  [UserInfoKit sharedKit].bank_account = @"";
+                  [UserInfoKit sharedKit].bank_cardid = @"";
+                  [UserInfoKit sharedKit].bank_name = @"";
+                  [UserInfoKit sharedKit].idcard_num = @"";
+                  [JPUSHService setAlias:@"" callbackSelector:nil
+                                  object:self];
 
+              }
+              [Common hideProgress];
+          }
+          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+              NSLog(@"Error: %@", error);
+              [Common hideProgress];
+              //[Common showMessage:ERR_CONNECTION];
+          }];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -238,7 +332,13 @@
     if (indexPath.row < [commodities count]){
         Commodity *info = [Commodity alloc];
         info = [commodities objectAtIndex:indexPath.row];
-        [cell.imgView sd_setImageWithURL:[NSURL URLWithString:info.thumb_url] placeholderImageScale:[UIImage imageNamed:@"noImage.jpg"]];
+        [cell.imgView sd_setImageWithURL:[NSURL URLWithString:info.original_url] placeholderImageScale:[UIImage imageNamed:@"noImage.jpg"]];
+        if (cell.imgView.gestureRecognizers.count == 0)
+        {
+            [cell.imgView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapCell:)]];
+        }
+        cell.imgView.tag = indexPath.row;
+
         cell.lblTitle.text = info.name;
         cell.lblPrice.text = [NSString stringWithFormat:@"¥%.02f", info.cost];
         if (info.buy_status) {
@@ -254,18 +354,43 @@
     }
     return cell;
 }
+- (void)tapCell:(UITapGestureRecognizer *)inGestureRecognizer
+{
+    UIImageView *childView = (UIImageView*)inGestureRecognizer.view;
+    if (childView.tag < [commodities count]){// && self.detailFlag != DETAIL_ABLE_FLAG){
+        Commodity *info = [commodities objectAtIndex:childView.tag];
+        //goto nib of story board
+        SBPhotoManager *photoViewerManager = [[SBPhotoManager alloc] init];
+        UIImageView *tmpImgView = [[UIImageView alloc] init];
+        [tmpImgView sd_setImageWithURL:[NSURL URLWithString:info.original_url] placeholderImageScale:[UIImage imageNamed:@"noImage.jpg"]];
+        [photoViewerManager initializePhotoViewerFromViewControlller:self forTargetImageView:tmpImgView withPosition:self.tableView.frame];
+        
+    }
+}
 
 - (IBAction)onBuy:(id)sender {
-    UIButton *button = (UIButton *)sender;
-    currentInd = button.tag;
-    Commodity * info = [Commodity alloc];
-    info = [commodities objectAtIndex:currentInd];
-    OrderViewController *vc = [[OrderViewController alloc] initWithNibName:@"OrderViewController" bundle:nil];
-    vc.title = STR_ORDER;
-    vc.goods_id = info.goods_id;
-    // Push the view controller.
-    [self.navigationController pushViewController:vc animated:YES];
+    if([UserInfoKit sharedKit].userID > UNLOGIN_FLAG){
+        
+        UIButton *button = (UIButton *)sender;
+        currentInd = button.tag;
+        Commodity * info = [Commodity alloc];
+        info = [commodities objectAtIndex:currentInd];
+        OrderViewController *vc = [[OrderViewController alloc] initWithNibName:@"OrderViewController" bundle:nil];
+        vc.title = STR_ORDER;
+        vc.goods_id = info.goods_id;
+        // Push the view controller.
+        [self.navigationController pushViewController:vc animated:YES];
+    } else {
+        [self gotoLogin];
+    }
 
+}
+- (void)gotoLogin {
+    // Create the next view controller.
+    LogInViewController *loginViewController = [[LogInViewController alloc] initWithNibName:@"LogInViewController" bundle:nil];
+    // Push the view controller.
+    [self.navigationController pushViewController:loginViewController animated:YES];
+    
 }
 
 

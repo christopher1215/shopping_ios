@@ -70,6 +70,10 @@
 		FA7E36251E4C5584005AED59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA7E36231E4C5584005AED59 /* Main.storyboard */; };
 		FA7E36271E4C5584005AED59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA7E36261E4C5584005AED59 /* Assets.xcassets */; };
 		FA7E362A1E4C5584005AED59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA7E36281E4C5584005AED59 /* LaunchScreen.storyboard */; };
+		FA81B5541E7BC7710017F342 /* ManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA81B5521E7BC7710017F342 /* ManagerViewController.m */; };
+		FA81B5551E7BC7710017F342 /* ManagerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA81B5531E7BC7710017F342 /* ManagerViewController.xib */; };
+		FA81B5591E7C1E460017F342 /* CommissionDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA81B5571E7C1E460017F342 /* CommissionDetailViewController.m */; };
+		FA81B55A1E7C1E460017F342 /* CommissionDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA81B5581E7C1E460017F342 /* CommissionDetailViewController.xib */; };
 		FA8A21B91E6526C40096F546 /* ChangePwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8A21B71E6526C40096F546 /* ChangePwdViewController.m */; };
 		FA8A21BA1E6526C40096F546 /* ChangePwdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA8A21B81E6526C40096F546 /* ChangePwdViewController.xib */; };
 		FA8A21BE1E6553070096F546 /* MyNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8A21BC1E6553070096F546 /* MyNewsViewController.m */; };
@@ -381,6 +385,12 @@
 		FA7E36261E4C5584005AED59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA7E36291E4C5584005AED59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA7E362B1E4C5584005AED59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA81B5511E7BC7710017F342 /* ManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagerViewController.h; sourceTree = "<group>"; };
+		FA81B5521E7BC7710017F342 /* ManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagerViewController.m; sourceTree = "<group>"; };
+		FA81B5531E7BC7710017F342 /* ManagerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManagerViewController.xib; sourceTree = "<group>"; };
+		FA81B5561E7C1E460017F342 /* CommissionDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommissionDetailViewController.h; sourceTree = "<group>"; };
+		FA81B5571E7C1E460017F342 /* CommissionDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommissionDetailViewController.m; sourceTree = "<group>"; };
+		FA81B5581E7C1E460017F342 /* CommissionDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommissionDetailViewController.xib; sourceTree = "<group>"; };
 		FA8A21B61E6526C40096F546 /* ChangePwdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangePwdViewController.h; sourceTree = "<group>"; };
 		FA8A21B71E6526C40096F546 /* ChangePwdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangePwdViewController.m; sourceTree = "<group>"; };
 		FA8A21B81E6526C40096F546 /* ChangePwdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChangePwdViewController.xib; sourceTree = "<group>"; };
@@ -976,6 +986,12 @@
 				FA0779621E67BD2D00352903 /* WalletTableViewCell.h */,
 				FA0779631E67BD2D00352903 /* WalletTableViewCell.m */,
 				FA0779641E67BD2D00352903 /* WalletTableViewCell.xib */,
+				FA81B5511E7BC7710017F342 /* ManagerViewController.h */,
+				FA81B5521E7BC7710017F342 /* ManagerViewController.m */,
+				FA81B5531E7BC7710017F342 /* ManagerViewController.xib */,
+				FA81B5561E7C1E460017F342 /* CommissionDetailViewController.h */,
+				FA81B5571E7C1E460017F342 /* CommissionDetailViewController.m */,
+				FA81B5581E7C1E460017F342 /* CommissionDetailViewController.xib */,
 			);
 			path = ProfileDetails;
 			sourceTree = "<group>";
@@ -2093,6 +2109,7 @@
 				FAA607661E518FCB009807AF /* WebKitViewController.xib in Resources */,
 				FA0C18BB1E5AD130009FBA8C /* menu_myinfo.png in Resources */,
 				FAA607151E518FCA009807AF /* next.png in Resources */,
+				FA81B5551E7BC7710017F342 /* ManagerViewController.xib in Resources */,
 				FAB617AF1E680E06005AC750 /* splash.png in Resources */,
 				FA0C19111E5DF158009FBA8C /* faceimg.png in Resources */,
 				FAA607051E518FCA009807AF /* Overlay@2x.png in Resources */,
@@ -2117,6 +2134,7 @@
 				FAB617A91E680982005AC750 /* read_me.txt in Resources */,
 				FAA607DF1E52B621009807AF /* separator.png in Resources */,
 				FA0C191F1E5DF270009FBA8C /* RecoverPwdViewController.xib in Resources */,
+				FA81B55A1E7C1E460017F342 /* CommissionDetailViewController.xib in Resources */,
 				FAA6071C1E518FCA009807AF /* SBSliderView.xib in Resources */,
 				FAA606DE1E518FCA009807AF /* HZAreaPickerView.xib in Resources */,
 				FAA607131E518FCA009807AF /* lamborghini_murcielago_superveloce_2-2880x1800.jpg in Resources */,
@@ -2181,6 +2199,7 @@
 				FAA6070A1E518FCA009807AF /* FSBasicImageSource.m in Sources */,
 				FAB617C51E688530005AC750 /* WXApiManager.m in Sources */,
 				FAA606F91E518FCA009807AF /* ELCAsset.m in Sources */,
+				FA81B5541E7BC7710017F342 /* ManagerViewController.m in Sources */,
 				FAA607311E518FCA009807AF /* MJRefreshConst.m in Sources */,
 				FA6BE2A41E66A8D6009C2C41 /* MgrBonusHistoryViewController.m in Sources */,
 				FAA607441E518FCA009807AF /* UIView+WebCacheOperation.m in Sources */,
@@ -2227,6 +2246,7 @@
 				FAA606E21E518FCA009807AF /* CCMPopupAnimation.m in Sources */,
 				FAA6074A1E518FCA009807AF /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				FA0779691E67C13D00352903 /* BuyHistory.m in Sources */,
+				FA81B5591E7C1E460017F342 /* CommissionDetailViewController.m in Sources */,
 				FA4FB1FB1E6CF7D400529D56 /* OrderViewController.m in Sources */,
 				FAA606E61E518FCA009807AF /* UIImage+ImageEffects.m in Sources */,
 				FAA606E81E518FCA009807AF /* UIViewController+CCMPopupAnimation.m in Sources */,

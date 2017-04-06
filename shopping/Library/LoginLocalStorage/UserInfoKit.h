@@ -16,7 +16,7 @@
 @property (nonatomic, strong) NSString * password;
 
 @property (nonatomic, strong) NSString *parent_name;
-@property (nonatomic, assign) int reamin_buy_num;
+@property (nonatomic, assign) int remain_buy_num;
 @property (nonatomic, assign) int buy_num;
 @property (nonatomic, assign) int dividend_num;
 @property (nonatomic, strong) NSString *level_str;
@@ -48,6 +48,7 @@
 @property (nonatomic, assign) short recommender_flag;
 @property (nonatomic, assign) int recomment_userid;
 @property (nonatomic, strong) NSString *reg_date;
+@property (nonatomic, strong) NSString *contact_qq;
 @property (nonatomic, assign) float withdraw_agent_money;
 @property (nonatomic, assign) int withdraw_agent_num;
 @property (nonatomic, assign) float withdraw_money;

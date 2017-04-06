@@ -16,6 +16,7 @@
 #import "AboutUsViewController.h"
 #import "ContactUsViewController.h"
 #import "WalletViewController.h"
+#import "JPUSHService.h"
 
 #import "DDKit.h"
 
@@ -57,7 +58,7 @@
         self.lblPhone.text = [UserInfoKit sharedKit].phone;
         self.lblName.text = [UserInfoKit sharedKit].name;
         self.lblRecommender.text = [NSString stringWithFormat:@"推荐人：%@",[UserInfoKit sharedKit].parent_name];
-        self.lblRemain.text = [NSString stringWithFormat:@"剩余购买次数：%d",[UserInfoKit sharedKit].reamin_buy_num];
+        self.lblRemain.text = [NSString stringWithFormat:@"剩余购买次数：%d",[UserInfoKit sharedKit].remain_buy_num];
         self.lblCartOut.text = [NSString stringWithFormat:@"%d/%d",[UserInfoKit sharedKit].buy_num, [UserInfoKit sharedKit].dividend_num];
         self.lblMemberCnt.text = [UserInfoKit sharedKit].level_str;
         self.lblWallet.text = [NSString stringWithFormat:@"%.02f元",[UserInfoKit sharedKit].current_money];
@@ -107,7 +108,8 @@
             [UserInfoKit sharedKit].bank_cardid = @"";
             [UserInfoKit sharedKit].bank_name = @"";
             [UserInfoKit sharedKit].idcard_num = @"";
-            
+            [JPUSHService setAlias:@"" callbackSelector:nil
+                            object:self];
             [self.btnLogout setHidden:YES];
             [self gotoPreviousPage];
             break;

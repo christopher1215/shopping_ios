@@ -18,7 +18,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnSearch;
 @property (weak, nonatomic) IBOutlet UIDownDatePicker *pickerStartDate;
 @property (weak, nonatomic) IBOutlet UIDownDatePicker *pickerEndDate;
-@property (weak, nonatomic) IBOutlet UILabel *lblTotalBuyMoney;
-@property (weak, nonatomic) IBOutlet UILabel *lblTotalUsers;
+@property (assign, nonatomic) short fromType;
 
 @end

@@ -147,6 +147,10 @@
     {
         [Common showMessage:@"密码两次输入不一致"];
     }
+    else if([self.txtRecommendCode.text isEqualToString:@""])
+    {
+        [Common showMessage:@"推荐码不能为空。如果没有推荐码的话，请输入00000。"];
+    }
     else
     {
         [Common showProgress:self.view];	//Showing the progress message
@@ -154,7 +158,8 @@
         NSDictionary *data = @ {@"phone" : [NSString stringWithFormat:@"%@", self.txtPhoneNum.text],
             @"verify_code"  : [NSString stringWithFormat:@"%@", self.txtSMS.text],
             @"password"   : [NSString stringWithFormat:@"%@", self.txtPwd.text],
-            @"confirmpw"   : [NSString stringWithFormat:@"%@", self.txtPwd.text]
+            @"confirmpw"   : [NSString stringWithFormat:@"%@", self.txtPwd.text],
+            @"invite_code" : [NSString stringWithFormat:@"%@", self.txtRecommendCode.text]
         };
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
         manager.responseSerializer = [AFJSONResponseSerializer serializer];
@@ -171,7 +176,8 @@
                       [UserInfoKit sharedKit].name = [latestLoans objectForKey:@"name"];
                       [UserInfoKit sharedKit].level = [[latestLoans objectForKey:@"level"] shortValue];
                       [UserInfoKit sharedKit].parent_name = [latestLoans objectForKey:@"parent_name"];
-                      [UserInfoKit sharedKit].reamin_buy_num = [[latestLoans objectForKey:@"reamin_buy_num"] intValue];
+                      [UserInfoKit sharedKit].remain_buy_num = [[latestLoans objectForKey:@"remain_buy_num"] intValue];
+                      [UserInfoKit sharedKit].dividend_num = [[latestLoans objectForKey:@"dividend_num"] intValue];
                       [UserInfoKit sharedKit].buy_num = [[latestLoans objectForKey:@"buy_num"] intValue];
                       [UserInfoKit sharedKit].level_str = [latestLoans objectForKey:@"level_str"];
                       [UserInfoKit sharedKit].current_money = [[latestLoans objectForKey:@"current_money"] floatValue];
@@ -312,6 +318,10 @@
         return bFlag;
     } else if (textField == self.txtRePwd) {
         NSUInteger maxLength = 40;
+        bFlag = [textField.text stringByReplacingCharactersInRange:range withString:string].length <= maxLength;
+        return bFlag;
+    } else if (textField == self.txtRecommendCode) {
+        NSUInteger maxLength = 5;
         bFlag = [textField.text stringByReplacingCharactersInRange:range withString:string].length <= maxLength;
         return bFlag;
     }

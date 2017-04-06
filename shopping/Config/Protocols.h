@@ -1,4 +1,5 @@
 #define     SERVER_URL                      @"http://httpslnwd.com/appApi/"
+//#define     SERVER_URL                      @"http://47.93.87.143/appApi/"
 
 #define     SERVER_UPLOAD_URL               @"http://httpslnwd.com/appApi/"
 #define 	SVC_UP_CHARACTER_IMG			@"save_idcard_img"
@@ -24,3 +25,8 @@
 #define     SVC_GET_BUY_LIST                @"get_buy_list"
 #define     SVC_GET_ORDERNUM                @"get_ordernum"
 #define     SVC_PRE_WEIXIN_PAY              @"pre_weixin_pay"
+#define     SVC_WALLET_PAY                  @"wallet_pay"
+#define     SVC_GET_AGENT_TOT_COMMISSION    @"get_agent_tot_commission"
+#define     SVC_GET_AGENT_DAY_COM_LIST      @"get_agent_day_com_list"
+#define     SVC_GET_AGENT_MONTH_COM_LIST    @"get_agent_month_com_list"
+#define     SVC_GET_AGENT_RATING_COM_LIST   @"get_agent_rating_com_list"

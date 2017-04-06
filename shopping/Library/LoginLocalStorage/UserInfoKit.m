@@ -28,7 +28,7 @@
         _name = [[NSUserDefaults standardUserDefaults] objectForKey:@"name"];
         _password = [[NSUserDefaults standardUserDefaults] objectForKey:@"password"];
         _parent_name = [[NSUserDefaults standardUserDefaults] objectForKey:@"parent_name"];
-        _reamin_buy_num = [[[NSUserDefaults standardUserDefaults] objectForKey:@"reamin_buy_num"] intValue];
+        _remain_buy_num = [[[NSUserDefaults standardUserDefaults] objectForKey:@"remain_buy_num"] intValue];
         _buy_num = [[[NSUserDefaults standardUserDefaults] objectForKey:@"buy_num"] intValue];
         _dividend_num = [[[NSUserDefaults standardUserDefaults] objectForKey:@"dividend_num"] intValue];
 		_level_str = [[NSUserDefaults standardUserDefaults] objectForKey:@"level_str"];
@@ -101,9 +101,9 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
     
 }
-- (void)setReamin_buy_num:(int)reamin_buy_num{
-    _reamin_buy_num = reamin_buy_num;
-    [[NSUserDefaults standardUserDefaults] setInteger:_reamin_buy_num?:0 forKey:@"reamin_buy_num"];
+- (void)setRemain_buy_num:(int)remain_buy_num{
+    _remain_buy_num = remain_buy_num;
+    [[NSUserDefaults standardUserDefaults] setInteger:_remain_buy_num?:0 forKey:@"remain_buy_num"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 - (void)setBuy_num:(int)buy_num{
@@ -293,6 +293,11 @@
 - (void)setWithdraw_num:(int)withdraw_num{
     _withdraw_num = withdraw_num;
     [[NSUserDefaults standardUserDefaults] setInteger:_withdraw_num?:0 forKey:@"withdraw_num"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+- (void)setContact_qq:(NSString *)contact_qq{
+    _contact_qq = contact_qq;
+    [[NSUserDefaults standardUserDefaults] setObject:_contact_qq?:@"" forKey:@"contact_qq"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 

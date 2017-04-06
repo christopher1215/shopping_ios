@@ -42,6 +42,7 @@
 -(void)gotoSystemMsgPage:(NSNotification *)noti
 {
     MyNewsViewController *vc = [[MyNewsViewController alloc] initWithNibName:@"MyNewsViewController" bundle:nil];
+    vc.title = STR_MYNEWS;
     [self pushViewController:vc animated:YES];
 }
 

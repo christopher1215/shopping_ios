@@ -29,6 +29,13 @@
     self.btnPay.layer.borderColor = [UIColor clearColor].CGColor;
     self.btnPay.layer.masksToBounds = YES;
     [self getInfo];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshOrderViewer:) name:@"refreshOrderViewer" object:nil];
+    self.lblMoney.text = [NSString stringWithFormat:@"帐号余额：%.02f元",[UserInfoKit sharedKit].current_money];
+}
+-(void)refreshOrderViewer:(NSNotification *)noti
+{
+    [self getInfo];
 }
 
 -(void)getInfo{
@@ -50,6 +57,8 @@
                   _lblOrderNum.text = orderNum;
                   _lblCost.text = [NSString stringWithFormat:@"¥%.02f", [[latestLoans objectForKey: @"cost"] floatValue]];
                       
+              } else {
+                  [self.navigationController popViewControllerAnimated:NO];
               };
           }
           failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -60,8 +69,9 @@
     
 }
 - (IBAction)onPay:(id)sender {
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:/*@"支付宝",*/@"微信",nil];
-    [actionSheet showInView:self.view];
+        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"微信",@"钱包支付",/*@"支付宝",*/nil];
+        [actionSheet showInView:self.view];
+
 }
 
 
@@ -83,8 +93,51 @@
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     NSLog(@"%ld", (long)buttonIndex);
-    /*    if(buttonIndex == 0)
+     if(buttonIndex == 0)
      {
+         if ([WXApi isWXAppInstalled])
+         {
+             [self jumpToBizPay];
+         } else
+         {
+             NSString *myHTMLSource = @"itunesurl://itunes.apple.com/cn/app/微信/id414478124?mt=8";
+             //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:myHTMLSource]options:@{} completionHandler:nil];
+             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:myHTMLSource] options:@{} completionHandler:nil];
+         }
+     }
+     else if(buttonIndex == 1){
+         NSString * urlStr = [SERVER_URL stringByAppendingString:SVC_WALLET_PAY];
+         NSDictionary *data = @ {@"user_id"	: [NSString stringWithFormat:@"%ld", [UserInfoKit sharedKit].userID],
+             @"goods_id"			: [NSString stringWithFormat:@"%ld", self.goods_id],
+             @"order_num"			: [NSString stringWithFormat:@"%@", orderNum]
+         };
+         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+         [Common showProgress:self.view];
+         manager.responseSerializer = [AFJSONResponseSerializer serializer];
+         manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+         [manager POST:urlStr parameters:data
+               success:^(AFHTTPRequestOperation *operation, id responseObject){
+                   [Common hideProgress];
+                   if ([[responseObject objectForKey:@"errCode"] intValue] == 0) {
+                       [[NSNotificationCenter defaultCenter] postNotificationName:@"gotoProfileViewer" object:@{@"tabID":@"2"}];
+                       UIAlertView *alter = [[UIAlertView alloc] initWithTitle:@"支付成功" message:[responseObject objectForKey:@"errMsg"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                       
+                       [alter show];
+                   } else {
+                       UIAlertView *alter = [[UIAlertView alloc] initWithTitle:@"支付失败" message:[responseObject objectForKey:@"errMsg"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                       
+                       [alter show];
+                   };
+               }
+               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                   NSLog(@"Error: %@", error);
+                   [Common hideProgress];
+                   [Common showMessage:ERR_CONNECTION];
+               }];
+         
+     }
+
+/*     {
      
      NSString *appid = ALIPAY_APPID;
      NSString *partner = ALIPAY_PARTNER;
@@ -186,10 +239,8 @@
      }];
      
      
-     } else if(buttonIndex == 1){
-     */        [self jumpToBizPay];
-    
-    //    }
+     }
+    */
 }
 
 - (void)jumpToBizPay {

@@ -152,7 +152,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 50;
+    return 90;
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -170,6 +170,8 @@
         Notification *info = [Notification alloc];
         info = [notifications objectAtIndex:indexPath.row];
         cell.lblContent.text = [NSString stringWithFormat:@"  %@", info.content];
+        cell.lblKind.text = [NSString stringWithFormat:@"  %@", info.message_type];
+        cell.lblTime.text = [NSString stringWithFormat:@"  %@", info.reg_date];
     }
     return cell;
 }

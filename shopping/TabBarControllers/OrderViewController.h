@@ -12,5 +12,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblOrderNum;
 @property (weak, nonatomic) IBOutlet UILabel *lblCost;
 @property (weak, nonatomic) IBOutlet UIButton *btnPay;
+@property (weak, nonatomic) IBOutlet UILabel *lblMoney;
 @property (assign, nonatomic) long goods_id;
 @end

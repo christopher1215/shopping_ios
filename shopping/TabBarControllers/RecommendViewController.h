@@ -10,5 +10,7 @@
 
 @interface RecommendViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIImageView *imgQr;
+@property (weak, nonatomic) IBOutlet UILabel *lblInviteCode;
+@property (weak, nonatomic) IBOutlet UILabel *lblInviteUrl;
 
 @end

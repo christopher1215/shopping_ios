@@ -74,6 +74,8 @@
                   invite_url = [latestLoans objectForKey:@"invite_url"];
                   invite_qr_url = [latestLoans objectForKey:@"invite_qr_url"];
                   [self.imgQr sd_setImageWithURL:[NSURL URLWithString:invite_qr_url] placeholderImageScale:[UIImage imageNamed:@"noImage.jpg"]];
+                  _lblInviteUrl.text = invite_url;
+                  _lblInviteCode.text = [NSString stringWithFormat:@"您的推荐码是：%@",invite_code];
               }
               [Common hideProgress];
           }

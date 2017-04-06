@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="0Pf-rY-TGE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="0Pf-rY-TGE">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -75,17 +76,37 @@
                                     <constraint firstAttribute="width" secondItem="Gj1-9H-4FB" secondAttribute="height" multiplier="1:1" id="5hZ-rC-jgi"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DAe-ax-8C3">
+                                <rect key="frame" x="24" y="429" width="327" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sfI-G5-6o8">
+                                <rect key="frame" x="24" y="449" width="327" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="sfI-G5-6o8" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="8" id="3LK-EI-fhG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="DAe-ax-8C3" secondAttribute="trailing" constant="8" id="6ys-l1-G7g"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="sfI-G5-6o8" secondAttribute="trailing" constant="8" id="MmL-oO-GuN"/>
+                            <constraint firstItem="DAe-ax-8C3" firstAttribute="top" secondItem="Gj1-9H-4FB" secondAttribute="bottom" constant="30" id="R7e-RA-J48"/>
                             <constraint firstAttribute="trailing" secondItem="Gj1-9H-4FB" secondAttribute="trailing" constant="50" id="YTh-d2-kOO"/>
+                            <constraint firstItem="DAe-ax-8C3" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="8" id="gky-TL-6eQ"/>
                             <constraint firstItem="Gj1-9H-4FB" firstAttribute="centerY" secondItem="QS5-Rx-YEW" secondAttribute="centerY" constant="-40" id="qPT-ro-ebl"/>
+                            <constraint firstItem="sfI-G5-6o8" firstAttribute="top" secondItem="DAe-ax-8C3" secondAttribute="bottom" constant="20" id="tcq-Q2-Ds2"/>
                             <constraint firstItem="Gj1-9H-4FB" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" constant="50" id="uAP-ab-8jP"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="推  荐" image="tab_btn_recommend" id="cPa-gy-q4n"/>
                     <connections>
                         <outlet property="imgQr" destination="Gj1-9H-4FB" id="yO8-FA-62Q"/>
+                        <outlet property="lblInviteCode" destination="sfI-G5-6o8" id="P4O-Ew-Jqj"/>
+                        <outlet property="lblInviteUrl" destination="DAe-ax-8C3" id="qmq-La-kTq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
@@ -148,8 +169,14 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2vx-rh-jcn">
+                                <rect key="frame" x="187" y="10" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RJC-qd-5ft">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="40" width="375" height="44"/>
                                 <color key="backgroundColor" red="0.98312824964523315" green="0.57354801893234253" blue="0.52032369375228882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="hY4-0m-spt"/>
@@ -169,7 +196,7 @@
                                 <color key="barTintColor" red="0.98312824964523315" green="0.57354801893234253" blue="0.52032369375228882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </toolbar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gsP-Mb-9Wq">
-                                <rect key="frame" x="0.0" y="44" width="375" height="510"/>
+                                <rect key="frame" x="0.0" y="84" width="375" height="470"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="0bT-kP-1ZV" id="EdS-ll-6xq"/>
@@ -179,18 +206,22 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="RJC-qd-5ft" firstAttribute="top" secondItem="CYw-bn-p4m" secondAttribute="bottom" id="G4u-Sr-I6T"/>
+                            <constraint firstItem="RJC-qd-5ft" firstAttribute="top" secondItem="CYw-bn-p4m" secondAttribute="bottom" constant="40" id="G4u-Sr-I6T"/>
                             <constraint firstItem="iZZ-OC-bef" firstAttribute="top" secondItem="gsP-Mb-9Wq" secondAttribute="bottom" id="Gn6-Rt-TkV"/>
                             <constraint firstItem="gsP-Mb-9Wq" firstAttribute="top" secondItem="RJC-qd-5ft" secondAttribute="bottom" id="Qhn-5q-QER"/>
                             <constraint firstItem="gsP-Mb-9Wq" firstAttribute="leading" secondItem="iqk-8l-INc" secondAttribute="leading" id="Sa8-sO-vh3"/>
                             <constraint firstAttribute="trailing" secondItem="RJC-qd-5ft" secondAttribute="trailing" id="cHk-wG-UDu"/>
                             <constraint firstAttribute="trailing" secondItem="gsP-Mb-9Wq" secondAttribute="trailing" id="fpR-aT-L2e"/>
+                            <constraint firstItem="2vx-rh-jcn" firstAttribute="top" secondItem="CYw-bn-p4m" secondAttribute="bottom" constant="10" id="rCA-Mv-zis"/>
                             <constraint firstItem="RJC-qd-5ft" firstAttribute="leading" secondItem="iqk-8l-INc" secondAttribute="leading" id="sA9-ph-zGR"/>
+                            <constraint firstItem="2vx-rh-jcn" firstAttribute="centerX" secondItem="iqk-8l-INc" secondAttribute="centerX" id="ukA-hm-q4C"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="客户关系" image="tab_btn_contact" id="UbN-bA-cQk"/>
                     <connections>
+                        <outlet property="lblParent" destination="2vx-rh-jcn" id="2Ms-Vh-iVI"/>
                         <outlet property="tableView" destination="gsP-Mb-9Wq" id="rnR-hI-j1w"/>
+                        <outlet property="tblTop" destination="G4u-Sr-I6T" id="6od-TA-yFV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G3h-sD-Ego" sceneMemberID="firstResponder"/>
@@ -213,13 +244,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="账号：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="04F-Ug-j78">
-                                        <rect key="frame" x="10" y="23.5" width="43" height="17"/>
+                                        <rect key="frame" x="10" y="24" width="43" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="姓名：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gQt-gH-8IL">
-                                        <rect key="frame" x="10" y="59.5" width="43" height="17"/>
+                                        <rect key="frame" x="10" y="60" width="43" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>

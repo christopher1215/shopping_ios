@@ -12,6 +12,7 @@
 #import "MJRefresh.h"
 #import "BuyHistory.h"
 #import "InfoViewController.h"
+#import "MgrBonusHistoryViewController.h"
 
 @interface WalletViewController ()
 {
@@ -228,6 +229,10 @@
                   _lblBuyMoney.text = [NSString stringWithFormat:@"%.02f", [[latestLoans objectForKey:@"buy_money"] floatValue]];
                   _lblInviteMoney.text = [NSString stringWithFormat:@"%.02f", [[latestLoans objectForKey:@"invite_money"] floatValue]];
                   _lblTotalCommission.text = [NSString stringWithFormat:@"%.02f", [[latestLoans objectForKey:@"total_commision"] floatValue]];
+                  _lblRatingCommissionMoney.text = [NSString stringWithFormat:@"%.02f", [[latestLoans objectForKey:@"rating_commission_money"] floatValue]];
+                  _lblWaitRatingCommission.text = [NSString stringWithFormat:@"%.02f", [[latestLoans objectForKey:@"wait_rating_commission"] floatValue]];
+                  _lblProcessedMonthCommission.text = [NSString stringWithFormat:@"%.02f", [[latestLoans objectForKey:@"processed_month_commission"] floatValue]];
+                  _lblWaitMonthCommission.text = [NSString stringWithFormat:@"%.02f", [[latestLoans objectForKey:@"wait_month_commission"] floatValue]];
                   if ([UserInfoKit sharedKit].current_money > 0) {
                       [_btnReqWithdraw setEnabled:YES];
                       [_btnReqWithdraw setAlpha:1];
@@ -243,6 +248,12 @@
               [Common hideProgress];
               //[Common showMessage:ERR_CONNECTION];
           }];
+}
+- (IBAction)gotoCommission:(id)sender {
+    MgrBonusHistoryViewController *vc = [[MgrBonusHistoryViewController alloc] initWithNibName:@"MgrBonusHistoryViewController" bundle:nil];
+    // Push the view controller.
+    vc.fromType = 27;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

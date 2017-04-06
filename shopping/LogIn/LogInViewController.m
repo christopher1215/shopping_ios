@@ -9,7 +9,7 @@
 #import "LogInViewController.h"
 #import "SignUpViewController.h"
 #import "RecoverPwdViewController.h"
-#import "MgrBonusHistoryViewController.h"
+#import "ManagerViewController.h"
 
 #import "JPUSHService.h"
 
@@ -121,8 +121,7 @@
 			  if (latestLoans) {
                   if (_fromType == 3) {
                       
-                      MgrBonusHistoryViewController *vc = [[MgrBonusHistoryViewController alloc] initWithNibName:@"MgrBonusHistoryViewController" bundle:nil];
-                      vc.title = STR_MGRSTAT;
+                      ManagerViewController *vc = [[ManagerViewController alloc] initWithNibName:@"ManagerViewController" bundle:nil];
                       // Push the view controller.
                       [self.navigationController pushViewController:vc animated:YES];
                   } else {
@@ -134,7 +133,8 @@
                       [UserInfoKit sharedKit].name = [latestLoans objectForKey:@"name"];
                       [UserInfoKit sharedKit].level = [[latestLoans objectForKey:@"level"] shortValue];
                       [UserInfoKit sharedKit].parent_name = [latestLoans objectForKey:@"parent_name"];
-                      [UserInfoKit sharedKit].reamin_buy_num = [[latestLoans objectForKey:@"reamin_buy_num"] intValue];
+                      [UserInfoKit sharedKit].remain_buy_num = [[latestLoans objectForKey:@"remain_buy_num"] intValue];
+                      [UserInfoKit sharedKit].dividend_num = [[latestLoans objectForKey:@"dividend_num"] intValue];
                       [UserInfoKit sharedKit].buy_num = [[latestLoans objectForKey:@"buy_num"] intValue];
                       [UserInfoKit sharedKit].level_str = [latestLoans objectForKey:@"level_str"];
                       [UserInfoKit sharedKit].current_money = [[latestLoans objectForKey:@"current_money"] floatValue];
@@ -169,6 +169,7 @@
                       [UserInfoKit sharedKit].withdraw_agent_num = [[latestLoans objectForKey:@"withdraw_agent_num"] intValue];
                       [UserInfoKit sharedKit].withdraw_money = [[latestLoans objectForKey:@"withdraw_money"] floatValue];
                       [UserInfoKit sharedKit].withdraw_num = [[latestLoans objectForKey:@"withdraw_num"] intValue];
+                      [UserInfoKit sharedKit].contact_qq = [latestLoans objectForKey:@"contact_qq"];
                       
                       [JPUSHService setAlias:[UserInfoKit sharedKit].jpush_alias_code callbackSelector:nil
                                       object:self];

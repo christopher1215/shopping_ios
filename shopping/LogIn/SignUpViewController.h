@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet LeftImageTextField *txtSMS;
 @property (weak, nonatomic) IBOutlet LeftImageTextField *txtPwd;
 @property (weak, nonatomic) IBOutlet LeftImageTextField *txtRePwd;
+@property (weak, nonatomic) IBOutlet LeftImageTextField *txtRecommendCode;
 
 @property (nonatomic,assign) UIViewController *parentView;
 @end

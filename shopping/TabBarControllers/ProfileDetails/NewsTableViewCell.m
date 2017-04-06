@@ -17,10 +17,10 @@
 -(void)layoutSubviews
 {
     [super layoutSubviews];
-    self.lblContent.layer.cornerRadius = 4.0f;
-    self.lblContent.layer.borderWidth = 1.0f;
-    self.lblContent.layer.borderColor = [UIColor clearColor].CGColor;
-    self.lblContent.layer.masksToBounds = YES;
+    self.cntView.layer.cornerRadius = 5.0f;
+    self.cntView.layer.borderWidth = 1.0f;
+    self.cntView.layer.borderColor = [UIColor clearColor].CGColor;
+    self.cntView.layer.masksToBounds = YES;
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

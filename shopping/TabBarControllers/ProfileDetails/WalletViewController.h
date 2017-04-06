@@ -18,4 +18,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblBuyMoney;
 @property (weak, nonatomic) IBOutlet UILabel *lblInviteMoney;
 @property (weak, nonatomic) IBOutlet UILabel *lblTotalCommission;
+@property (weak, nonatomic) IBOutlet UILabel *lblRatingCommissionMoney;
+@property (weak, nonatomic) IBOutlet UILabel *lblWaitRatingCommission;
+@property (weak, nonatomic) IBOutlet UILabel *lblProcessedMonthCommission;
+@property (weak, nonatomic) IBOutlet UILabel *lblWaitMonthCommission;
 @end

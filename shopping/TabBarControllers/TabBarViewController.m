@@ -26,7 +26,7 @@
     self.tabBar.layer.shadowOffset  = CGSizeMake(0.0f, 0.0f);
     self.tabBar.layer.shadowOpacity = 0.7f;
     self.tabBar.layer.masksToBounds = NO;
-
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotoProfileViewer:) name:@"gotoProfileViewer" object:nil];
 }
 -(void) tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
 {
@@ -40,6 +40,12 @@
 //        self.navigationItem.leftBarButtonItem.enabled = NO;
 //        self.navigationItem.leftBarButtonItem = nil;
     }
+}
+-(void)gotoProfileViewer:(NSNotification *)noti
+{
+    [self.navigationController popViewControllerAnimated:NO];
+    [self setSelectedIndex:3];
+    
 }
 
 

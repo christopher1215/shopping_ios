@@ -15,6 +15,7 @@
 @interface ContactViewController ()
 {
     NSMutableArray *contacts;
+    NSString *parent_name;
 }
 @end
 
@@ -25,7 +26,9 @@
     // Do any additional setup after loading the view.
     contacts = [[NSMutableArray alloc] init];
     [self.tableView registerNib:[UINib nibWithNibName:@"ContactTableViewCell" bundle:nil] forCellReuseIdentifier:@"ContactCell"];
-
+    _lblParent.text = [NSString stringWithFormat:@"上级客户：%@", _strParent_Name];
+    if(self.detailFlag != DETAIL_ABLE_FLAG) _tblTop.constant = 0;
+    else  _tblTop.constant = 40;
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -54,29 +57,34 @@
     [manager POST:urlStr parameters:data
           success:^(AFHTTPRequestOperation *operation, id responseObject){
               [contacts removeAllObjects];
-              NSArray *latestLoans = [Common fetchArray:responseObject];
-              if (latestLoans.count > 0) {
-                  for (NSDictionary *latestloan in latestLoans) {
-                      ContactWith *info = [ContactWith alloc];
-                      info.user_id = [[latestloan objectForKey:@"user_id"] longValue];
-                      if ([[latestloan objectForKey:@"phone"] isKindOfClass:[NSNull class]]) {
-                          info.phone = @"";
-                      } else {
-                          info.phone = [latestloan objectForKey:@"phone"];
-                      }
-                      if ([[latestloan objectForKey:@"name"] isKindOfClass:[NSNull class]]) {
-                          info.name = @"";
-                      } else {
-                          info.name = [latestloan objectForKey:@"name"];
-                      }
-                      if ([[latestloan objectForKey:@"reg_date"] isKindOfClass:[NSNull class]]) {
-                          info.reg_date = @"";
-                      } else {
-                          info.reg_date = [latestloan objectForKey:@"reg_date"];
-                      }
-                      info.level = [[latestloan objectForKey:@"level"] shortValue];
+              NSDictionary *tempDic = [Common fetchData:responseObject];
+              if(tempDic){
+                  parent_name = [tempDic objectForKey:@"parent_name"];
+                  
+                  NSArray *latestLoans = [tempDic objectForKey:@"commodities"];
+                  if (latestLoans.count > 0) {
+                      for (NSDictionary *latestloan in latestLoans) {
+                          ContactWith *info = [ContactWith alloc];
+                          info.user_id = [[latestloan objectForKey:@"user_id"] longValue];
+                          if ([[latestloan objectForKey:@"phone"] isKindOfClass:[NSNull class]]) {
+                              info.phone = @"";
+                          } else {
+                              info.phone = [latestloan objectForKey:@"phone"];
+                          }
+                          if ([[latestloan objectForKey:@"name"] isKindOfClass:[NSNull class]]) {
+                              info.name = @"";
+                          } else {
+                              info.name = [latestloan objectForKey:@"name"];
+                          }
+                          if ([[latestloan objectForKey:@"reg_date"] isKindOfClass:[NSNull class]]) {
+                              info.reg_date = @"";
+                          } else {
+                              info.reg_date = [latestloan objectForKey:@"reg_date"];
+                          }
+                          info.level = [[latestloan objectForKey:@"level"] shortValue];
 
-                      [contacts addObject:info];
+                          [contacts addObject:info];
+                      }
                   }
               }
               [self.tableView reloadData];
@@ -177,8 +185,8 @@
         vc.user_id = info.user_id;
         if(self.detailFlag != DETAIL_ABLE_FLAG) vc.title = STR_DETAIL_CONTACT;
         vc.detailFlag = DETAIL_ABLE_FLAG;
+        vc.strParent_Name = parent_name;
         [self.navigationController pushViewController:vc animated:YES];
-        
     }
 }
 

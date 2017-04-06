@@ -13,6 +13,7 @@
 #import "MJRefresh.h"
 #import "DownDatePicker.h"
 #import "AgentCommission.h"
+#import "CommissionDetailViewController.h"
 
 @interface MgrBonusHistoryViewController ()
 {
@@ -31,6 +32,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.title = @"经理提成详细";
     self.btnReqCommission.layer.cornerRadius = 5.0f;
     self.btnReqCommission.layer.borderWidth = 1.0f;
     self.btnReqCommission.layer.borderColor = [UIColor clearColor].CGColor;
@@ -45,7 +47,6 @@
     self.endDatePicker = [[DownDatePicker alloc] initWithTextField:self.pickerEndDate];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"MgrBonusTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
-    [self getInfo];
 
     formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM-dd"];
@@ -62,33 +63,6 @@
     [self addRefreshKit];
 }
 
-- (void)getInfo
-{
-    NSString * urlStr = [SERVER_URL stringByAppendingString:SVC_GET_AGENT_COMMISSION];
-    NSDictionary *data = @ {@"user_id" : [NSString stringWithFormat:@"%ld", [UserInfoKit sharedKit].userID]
-    };
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [Common showProgress:self.view];
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
-    [manager POST:urlStr parameters:data
-          success:^(AFHTTPRequestOperation *operation, id responseObject){
-              NSDictionary *latestLoans = [Common fetchData:responseObject];
-              if (latestLoans) {
-                  _lblDayBonus.text = [NSString stringWithFormat:@"%.02f", [[latestLoans objectForKey:@"commission"] floatValue]];
-                  _lblMonthBonus.text = [NSString stringWithFormat:@"%.02f", [[latestLoans objectForKey:@"month_commission"] floatValue]];
-                  _lblTotalBonus.text = [NSString stringWithFormat:@"%.02f", [[latestLoans objectForKey:@"total_commission"] floatValue]];
-                  _lblTotalUsers.text = [NSString stringWithFormat:@"客户总数：%d", [[latestLoans objectForKey:@"tot_user"] intValue]];
-                  _lblTotalBuyMoney.text = [NSString stringWithFormat:@"购买总额：%.02f", [[latestLoans objectForKey:@"tot_buy_money"] floatValue]];
-              }
-              [Common hideProgress];
-          }
-          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-              NSLog(@"Error: %@", error);
-              [Common hideProgress];
-              //[Common showMessage:ERR_CONNECTION];
-          }];
-}
 - (IBAction)onGotoReqWithdraw:(id)sender {
     WithdrawViewController *vc = [[WithdrawViewController alloc] initWithNibName:@"WithdrawViewController" bundle:nil];
     vc.title = STR_WTHDRAW;
@@ -129,8 +103,21 @@
 - (void)getAgentCommission:(int)last_id
 {
     __weak typeof(self) weakSelf = self;
-    NSString * urlStr = [SERVER_URL stringByAppendingString:SVC_GET_AGENT_COMMISSION];
-    
+    NSString * urlStr;
+    switch (_fromType) {
+        case 25:
+            urlStr = [SERVER_URL stringByAppendingString:SVC_GET_AGENT_DAY_COM_LIST];
+            break;
+        case 26:
+            urlStr = [SERVER_URL stringByAppendingString:SVC_GET_AGENT_MONTH_COM_LIST];
+            break;
+        case 27:
+            urlStr = [SERVER_URL stringByAppendingString:SVC_GET_AGENT_RATING_COM_LIST];
+            break;
+            
+        default:
+            break;
+    }
     
     NSDictionary *data = @ {
         @"user_id":[NSString stringWithFormat:@"%ld", [UserInfoKit sharedKit].userID],
@@ -151,11 +138,23 @@
               
               NSDictionary *latestLoans = [Common fetchData:responseObject];
               if(latestLoans) {
+                  _lblDayBonus.text = [NSString stringWithFormat:@"%@次",[latestLoans objectForKey:@"tot_buy_num"]];
+                  _lblMonthBonus.text = [NSString stringWithFormat:@"%@元",[latestLoans objectForKey:@"tot_buy_money"]];
+                  _lblTotalBonus.text = [NSString stringWithFormat:@"%@元",[latestLoans objectForKey:@"tot_commission"]];
                   NSArray *notificationlists = [latestLoans objectForKey:@"commodities"];
                   for (NSDictionary *items in notificationlists) {
                       AgentCommission *notiItem = [AgentCommission alloc];
                       notiItem.reg_date = [items objectForKey:@"reg_date"];
                       notiItem.amount = [[items objectForKey:@"amount"] floatValue];
+                      notiItem.buyer_id = [[items objectForKey:@"buyer_id"] longValue];
+                      notiItem.buyer_name = [items objectForKey:@"buyer_name"];
+                      notiItem.direct_invite = [items objectForKey:@"direct_invite"];
+                      notiItem.goods_name = [items objectForKey:@"goods_name"];
+                      notiItem.goods_price = [[items objectForKey:@"goods_price"] floatValue];
+                      notiItem.Commission_id = [[items objectForKey:@"id"] longValue];
+                      notiItem.invite_id = [[items objectForKey:@"invite_id"] longValue];
+                      notiItem.rate = [[items objectForKey:@"rate"] intValue];
+                      notiItem.user_id = [[items objectForKey:@"user_id"] longValue];
                       [commissions addObject:notiItem];
                   }
                   weakSelf.last_id = [[latestLoans objectForKey:@"last_id"] intValue];
@@ -234,9 +233,32 @@
         AgentCommission *info = [AgentCommission alloc];
         info = [commissions objectAtIndex:indexPath.row];
         cell.lblDate.text = [NSString stringWithFormat:@"%@", info.reg_date];
-        cell.lblCommission.text = [NSString stringWithFormat:@"%d", info.amount];
+        cell.lblCommission.text = [NSString stringWithFormat:@"%.02f元", info.amount];
+        if (cell.gestureRecognizers.count == 0)
+        {
+            [cell addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapCell:)]];
+        }
     }
     return cell;
+}
+- (void)tapCell:(UITapGestureRecognizer *)inGestureRecognizer
+{
+    NSIndexPath *theIndexPath = [self.tableView indexPathForCell:(UITableViewCell *)inGestureRecognizer.view];
+    if (theIndexPath.row < [commissions count]){// && self.detailFlag != DETAIL_ABLE_FLAG){
+        AgentCommission *info = [commissions objectAtIndex:theIndexPath.row];
+        //goto nib of story board
+        CommissionDetailViewController *vc = [[CommissionDetailViewController alloc] initWithNibName:@"CommissionDetailViewController" bundle:nil];
+        // Push the view controller.
+        vc.strDirectInvite = [NSString stringWithFormat:@"直接推荐：%@", info.direct_invite];
+        vc.strBuyerName = [NSString stringWithFormat:@"客户姓名：%@", info.buyer_name];
+        vc.strGoodsName = [NSString stringWithFormat:@"商品名称：%@", info.goods_name];
+        vc.strRegDate = [NSString stringWithFormat:@"购买日期：%@", info.reg_date];
+        vc.strGoodsPrice = [NSString stringWithFormat:@"购买金额：%.02f元", info.goods_price];
+        vc.strRate = [NSString stringWithFormat:@"提成率：%d%%", info.rate];
+        vc.strAmount = [NSString stringWithFormat:@"提成金额：%.02f元", info.amount];
+        [self.navigationController pushViewController:vc animated:YES];
+        
+    }
 }
 
 - (void)didReceiveMemoryWarning {

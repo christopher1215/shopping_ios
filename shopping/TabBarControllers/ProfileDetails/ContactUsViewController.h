@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface ContactUsViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *lblContactQQ;
 
 @end

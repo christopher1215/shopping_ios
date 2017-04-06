@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="btnPay" destination="ffH-TG-1LV" id="arg-m8-IUU"/>
                 <outlet property="lblCost" destination="kmY-TT-kCw" id="TdH-iy-AzR"/>
+                <outlet property="lblMoney" destination="F4O-hr-94P" id="RU8-fD-pXf"/>
                 <outlet property="lblOrderNum" destination="Zgz-cz-KHv" id="rXR-cF-FK3"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -136,15 +137,23 @@
                         <action selector="onPay:" destination="-1" eventType="touchUpInside" id="ij0-d7-Z6l"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F4O-hr-94P">
+                    <rect key="frame" x="187.5" y="108" width="0.0" height="0.0"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="0.85918771404109584" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.92539888619999999" green="0.92555403709999995" blue="0.92537856100000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="F4O-hr-94P" firstAttribute="top" secondItem="gCP-qf-EU6" secondAttribute="bottom" constant="20" id="7Cr-9N-X3e"/>
                 <constraint firstItem="gCP-qf-EU6" firstAttribute="top" secondItem="8Vd-ip-FdY" secondAttribute="bottom" id="7jQ-y8-Al1"/>
                 <constraint firstAttribute="bottom" secondItem="ffH-TG-1LV" secondAttribute="bottom" constant="20" id="Ls4-YL-l5x"/>
                 <constraint firstItem="ffH-TG-1LV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="Nx8-1Z-3Gk"/>
                 <constraint firstItem="8Vd-ip-FdY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="WXg-Fb-65E"/>
                 <constraint firstAttribute="trailing" secondItem="8Vd-ip-FdY" secondAttribute="trailing" id="XRY-5g-nEL"/>
                 <constraint firstAttribute="trailing" secondItem="ffH-TG-1LV" secondAttribute="trailing" constant="20" id="ZVt-ax-9Vt"/>
+                <constraint firstItem="F4O-hr-94P" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="g1F-u2-yP3"/>
                 <constraint firstItem="8Vd-ip-FdY" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="hMD-mA-7km"/>
                 <constraint firstAttribute="trailing" secondItem="gCP-qf-EU6" secondAttribute="trailing" id="tdt-o6-yMD"/>
                 <constraint firstItem="gCP-qf-EU6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="xKT-aK-UfQ"/>
